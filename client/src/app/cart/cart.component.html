@@ -1,0 +1,103 @@
+<div class="container mt-4">
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+/>
+  
+  <div class="cart-section">
+    <h2 class="text-center mb-4">My Cart</h2>
+    <div *ngIf="cart.items?.length > 0 || cart.toppings?.length > 0; else emptyCart">
+      
+      
+      <div *ngIf="cart.items?.length > 0">
+        <h3 class="text-center">Pizzas</h3>
+        <div class="card mb-3" *ngFor="let item of cart.items; let i = index">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img [src]="item.image" class="img-fluid rounded-start" alt="Pizza Image" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ item.name }}</h5>
+                <p class="card-text">Price: ₹{{ item.price }} x {{ item.qty }}</p>
+                <div class="d-flex justify-content-between">
+                  <button class="trash-button" (click)="removeItem(item.pizzaId)"><i class="bi bi-trash"></i></button>
+                  <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-warning btn-sm me-2" (click)="decreaseQty(item)">
+                      <i class="bi bi-dash"></i>
+                    </button>
+                    <span class="fw-bold">{{ item.qty }}</span>
+                    <button class="btn btn-outline-success btn-sm ms-2" (click)="increaseQty(item)">
+                      <i class="bi bi-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-end mt-3">
+          <h4>Pizza Total: ₹{{ calculateItemsTotal() }}</h4>
+        </div>
+      </div>
+
+      
+      <div *ngIf="cart.toppings?.length > 0" class="toppings-section mt-4">
+        <h3 class="text-center">Toppings</h3>
+        <div class="card mb-3" *ngFor="let topping of cart.toppings">
+          <div class="row g-0 align-items-center">
+            <div class="col-md-2">
+              <img [src]="topping.image" class="img-fluid rounded-circle" alt="Topping Image" />
+            </div>
+            <div class="col-md-10">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h5 class="card-title">{{ topping.name }}</h5>
+                    <p class="card-text">Price: ₹{{ topping.price }}</p>
+                  </div>
+                  <button class="trash-button" (click)="removeTopping(topping.name)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-end mt-3">
+          <h4>Toppings Total: ₹{{ calculateToppingsTotal() }}</h4>
+        </div>
+      </div>
+      
+      
+    </div>
+
+    
+    <ng-template #emptyCart>
+      <p class="text-center text-muted">Your cart is empty. Start adding some pizzas!</p>
+    </ng-template>
+  </div>
+
+  
+  <div class="payment-section" *ngIf="cart.items?.length > 0 || cart.toppings?.length > 0">
+    <div class="payment-card">
+      <h5 class="text-center mb-3">Payment Details</h5>
+      <ul class="list-group">
+        <li class="list-group-item">Pizza <span class="float-end">₹{{ calculateItemsTotal() }}</span></li>
+        <li class="list-group-item">Toppings <span class="float-end">₹{{ calculateToppingsTotal() }}</span></li>
+      </ul>
+      <div class="mt-3">
+        <strong>Total Amount:</strong>
+        <span class="float-end">₹{{ calculateTotal() }}</span>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 mt-3 text-center">
+          <button type="button" class="btn btn-warning" (click)="paylo()">Pay</button>
+        </div>
+        <div class="col-sm-6 mt-3 text-center">
+          <button type="button" class="btn btn-dark" (click)="clearCart()">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

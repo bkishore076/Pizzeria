@@ -1,0 +1,40 @@
+<div class="pizza-menu">
+  <div class="menu-items">
+    <div class="menu-item" *ngFor="let p of pizzas">
+      <div class="item-details">
+        <div class="left-section">
+          <div class="name">{{p.name}}</div>
+          <div class="type-indicator">
+            <img *ngIf="p.type === 'veg'" src="assets/veg.png" alt="Vegetarian">
+            <img *ngIf="p.type !== 'veg'" src="assets/nonveg.png" alt="Non-Vegetarian">
+          </div>
+          <br>
+          <br>
+          <div class="price">₹{{p.price}}</div>
+        </div>
+        
+        <div class="content-section">
+          <div class="description">{{p.description}}</div>
+
+          <div class="ingredients">
+            <strong>Ingredients :</strong> 
+            <span>{{getIngredientsList(p.ingredients)}}</span>
+          </div>
+
+          <div class="toppings">
+            <strong>Toppings :</strong> 
+            <span>{{getToppingsList(p.topping)}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-image">
+        <img [src]="p.image" [alt]="p.name">
+        <button (click)="flags[p.id] ? remove(p) : add(p)" 
+                class="add-to-cart-btn">
+          {{ flags[p.id] ? 'Remove' : 'Add to Cart' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

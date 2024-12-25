@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.card {
+  border: 1px solid #e3e6f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #d1d3e2;
+  font-size: 1rem;
+  padding: 0.75rem;
+}
+
+button.btn-orange {
+  background-color: hsl(36, 100%, 57%);
+  border: none;
+  font-size: 1rem;
+  padding: 0.75rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+.btn-orange:hover {
+  background-color: #fb8c00;
+}
+
+.alert {
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.text-orange {
+  color: #ffa726;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.text-orange:hover {
+  color: #fb8c00;
+  text-decoration: underline;
+}

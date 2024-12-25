@@ -1,0 +1,80 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.cart-section {
+  flex: 1 1 65%;
+}
+
+.payment-section {
+  flex: 1 1 30%;
+  margin-top: 20px;
+  margin-left: auto;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card img {
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+button {
+  min-width: 100px;
+}
+
+.btn-danger,
+.btn-warning,
+.btn-success {
+  font-size: 0.9rem;
+  padding: 5px 10px;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+.payment-card {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.trash-button {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 1.5rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+.trash-button:hover {
+  color: #ff6b6b;
+}
+
+.card-body .trash-button {
+  margin-left: auto;
+}
+
+.toppings-section .card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

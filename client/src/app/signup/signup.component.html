@@ -1,0 +1,117 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h2 class="text-center mb-4 text-primary">Signup</h2>
+          <form (submit)="onSignup()" #signupForm="ngForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                [(ngModel)]="name"
+                name="name"
+                id="name"
+                type="text"
+                class="form-control"
+                placeholder="Enter your name"
+                required
+                #nameField="ngModel"
+              />
+              <div *ngIf="nameField.invalid && nameField.touched" class="alert alert-danger">
+                Name is required.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="age" class="form-label">Age</label>
+              <input
+                [(ngModel)]="age"
+                name="age"
+                id="age"
+                type="number"
+                class="form-control"
+                placeholder="Enter your age"
+                required
+                #ageField="ngModel"
+              />
+              <div *ngIf="ageField.invalid && ageField.touched" class="alert alert-danger">
+                Age is required and must be greater than 0.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="phone_no" class="form-label">Phone Number</label>
+              <input
+                [(ngModel)]="phone_no"
+                name="phone_no"
+                id="phone_no"
+                type="text"
+                class="form-control"
+                placeholder="Enter your phone number"
+                required
+                #phoneNoField="ngModel"
+              />
+              <div *ngIf="phoneNoField.invalid && phoneNoField.touched" class="alert alert-danger">
+                Phone number is required.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input
+                [(ngModel)]="address"
+                name="address"
+                id="address"
+                type="text"
+                class="form-control"
+                placeholder="Enter your address"
+                required
+                #addressField="ngModel"
+              />
+              <div *ngIf="addressField.invalid && addressField.touched" class="alert alert-danger">
+                Address is required.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                [(ngModel)]="username"
+                name="username"
+                id="username"
+                type="text"
+                class="form-control"
+                placeholder="Enter your username"
+                required
+                #usernameField="ngModel"
+              />
+              <div *ngIf="usernameField.invalid && usernameField.touched" class="alert alert-danger">
+                Username is required.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                [(ngModel)]="password"
+                name="password"
+                id="password"
+                type="password"
+                class="form-control"
+                placeholder="Enter your password"
+                required
+                #passwordField="ngModel"
+              />
+              <div *ngIf="passwordField.invalid && passwordField.touched" class="alert alert-danger">
+                Password is required.
+              </div>
+            </div>
+            <button type="submit" class="btn w-100" style="background-color: orange; color: white;" [disabled]="signupForm.invalid">Signup</button>
+          </form>
+          <div *ngIf="errorMessage" class="alert alert-danger mt-3 text-center">
+            {{ errorMessage }}
+          </div>
+          <div class="text-center mt-3">
+            <span>Already have an account?</span>
+            <a routerLink="/login" class="text-orange">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

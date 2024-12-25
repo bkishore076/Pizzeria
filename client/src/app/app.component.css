@@ -1,0 +1,23 @@
+.navbar{
+    margin: 2% 0;
+}
+
+.shopping-cart-button {
+    background-color: #FFC107; 
+    border: 1px solid #2196F3; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white; 
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center; 
+  }
+
+  .cart-icon {
+    margin-right: 5px; 
+  }
+  
+  .cart-text {
+    font-weight: bold; 
+  }

@@ -1,0 +1,32 @@
+.container-fluid {
+  max-width: 50%;
+  margin: auto;
+}
+
+.table {
+  width: 100%;
+}
+
+.table td img {
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.row.align-items-center {
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+}
+
+h6.float-end {
+  margin-top: 10px;
+}
+
+.row.align-items-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}

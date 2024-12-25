@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto">
+      <h4 class="text-center">Build Your Pizza</h4>
+    </div>
+    <div class="col"><hr></div>
+  </div>
+
+  <p class="text-center">Make your pizza by selecting toppings below:</p>
+
+  <table class="table table-striped border border-2">
+    <tbody>
+      <tr *ngFor="let t of toppings">
+        <td><img [src]="t.image" width="100px" height="100px" alt="{{ t.tname }}"></td>
+        <td><b>{{ t.tname }} - &#8377;{{ t.price }}</b></td>
+        <td>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              [checked]="isToppingSelected(t.id)"
+              (change)="toggleToppingSelection($event, t)"
+            >
+            <label class="form-check-label" style="color: orange;">Add</label>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Total Cost Section -->
+  <div class="row">
+    <div class="col text-start">
+      <h5 style="color: darkblue"><b>Total Cost: &#8377;{{ toppingTotal }}</b></h5>
+    </div>
+  </div>
+
+  <!-- Build Ur Pizza Button Section -->
+  <div class="row align-items-center mt-4 justify-content-center">
+    <div class="col-auto d-flex align-items-center">
+      <button type="button" class="btn btn-dark text-warning" (click)="confirmSelection()">Build Ur Pizza</button>
+    </div>
+  </div>
+</div>
